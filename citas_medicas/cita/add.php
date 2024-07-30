@@ -1,10 +1,10 @@
 <?php
 session_start();
-include('C:\xampp\htdocs\citas_medicas\includes\db.php');
-include('C:\xampp\htdocs\citas_medicas\includes\function.php');
+include('../includes/db.php');
+include('../includes/function.php');
 
-// Verificar rol de enfermero o administrador--------------------- revisar solo me deja como adminsitrador
-checkRole(1);
+// Verificar rol de enfermero o administrador
+checkRole([1, 3]);
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $codp = $_POST['codp'];
@@ -41,9 +41,14 @@ $resultMedicos = mysqli_query($conn, $queryMedicos);
 <html>
 <head>
     <title>Agregar Cita Médica - Clínica Vacaciones Felices C.A.</title>
+    <link rel="stylesheet" href="../css/style.css">
+
 </head>
 <body>
-    <h1>Agregar Cita Médica</h1>
+<?php include '../includes/menu2.php'; ?>
+
+ <div class="content">
+ <h1>Agregar Cita Médica</h1>
     <form method="post" action="">
         <label>Paciente:</label>
         <select name="codp" required>
@@ -68,5 +73,6 @@ $resultMedicos = mysqli_query($conn, $queryMedicos);
         <input type="submit" value="Agregar Cita">
     </form>
     <a href="view.php">Volver a la Lista de Citas Médicas</a>
+ </div>
 </body>
 </html>

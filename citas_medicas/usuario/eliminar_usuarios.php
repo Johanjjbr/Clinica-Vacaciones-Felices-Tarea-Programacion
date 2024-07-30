@@ -1,7 +1,7 @@
 <?php
 session_start();
-include('includes/db.php');
-include('includes/functions.php');
+include('C:\xampp\htdocs\citas_medicas\includes\db.php');
+include('C:\xampp\htdocs\citas_medicas\includes\function.php');
 
 // Verificar rol de administrador
 checkRole(1);

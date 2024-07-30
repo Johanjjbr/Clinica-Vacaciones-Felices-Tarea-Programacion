@@ -4,8 +4,6 @@ include('C:\xampp\htdocs\citas_medicas\includes\db.php');
 include('C:\xampp\htdocs\citas_medicas\includes\function.php');
 
 // Verificar rol de administrador
-
-
 $sql = "SELECT * FROM usuarios";
 $result = $conn->query($sql);
 ?>
@@ -13,8 +11,17 @@ $result = $conn->query($sql);
 <html>
 <head>
     <title>Lista de Usuarios</title>
+    <script>
+        function confirmDelete(userId) {
+            var confirmation = confirm("¿Estás seguro de que deseas eliminar este usuario?");
+            if (confirmation) {
+                window.location.href = "./eliminar_usuarios.php?id=" + userId;
+            }
+        }
+    </script>
 </head>
 <body>
+<?php include './includes/menu.php'; ?>
     <h1>Lista de Usuarios</h1>
     <a href="register.php">Registrar Usuario</a>
     <table border="1">
@@ -35,11 +42,11 @@ $result = $conn->query($sql);
             <td><?php echo $row['ROLE'] == 1 ? 'Administrador' : ($row['ROLE'] == 2 ? 'Médico' : 'Enfermero'); ?></td>
             <td>
                 <a href="editar_usuario.php?id=<?php echo $row['ID']; ?>">Editar</a>
-                <a href="eliminar_usuario.php?id=<?php echo $row['ID']; ?>">Eliminar</a>
+                <a href="javascript:void(0);" onclick="confirmDelete(<?php echo $row['ID']; ?>)">Eliminar</a>
             </td>
         </tr>
         <?php endwhile; ?>
     </table>
-    <a href="logout.php">Cerrar Sesión</a>
+    <a href="../logout.php">Cerrar Sesión</a>
 </body>
 </html>

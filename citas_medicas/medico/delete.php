@@ -8,7 +8,7 @@ checkRole(1);
 
 $id = $_GET['id'];
 
-// Verificar si el médico ya ha atendido pacientes
+// Verificar si el médico ya ha atendido pacientes------------ pendiente de revisar
 $sql = "SELECT COUNT(*) as count FROM citas WHERE CODM=$id";
 $result = $conn->query($sql);
 $count = $result->fetch_assoc()['count'];
@@ -16,9 +16,9 @@ $count = $result->fetch_assoc()['count'];
 if ($count > 0) {
     echo "No se puede eliminar un médico que ya ha atendido pacientes.";
 } else {
-    $sql = "DELETE FROM medicos WHERE ID=$id";
+    $sql = "DELETE FROM medicos WHERE CODM=$id";
     if ($conn->query($sql) === TRUE) {
-        header("Location: medicos.php");
+        header("Location: ./view.php");
     } else {
         echo "Error: " . $sql . "<br>" . $conn->error;
     }

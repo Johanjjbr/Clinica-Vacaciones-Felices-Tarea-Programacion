@@ -28,9 +28,13 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 <html>
 <head>
     <title>Agregar Paciente - Clínica Vacaciones Felices C.A.</title>
+    <link rel="stylesheet" href="../css/style.css">
 </head>
 <body>
-    <h1>Agregar Paciente</h1>
+<?php include '../includes/menu2.php'; ?>
+
+   <div class="content">
+   <h1>Agregar Paciente</h1>
     <form method="POST" action="add.php">
         <label for="nombre">Nombre:</label>
         <input type="text" name="nombre" required>
@@ -46,5 +50,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         <button type="submit">Agregar Paciente</button>
     </form>
     <a href="view.php">Volver a la Lista de Pacientes</a>
+   </div>
 </body>
 </html>

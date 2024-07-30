@@ -31,8 +31,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 <html>
 <head>
     <title>Editar Médico</title>
+    <link rel="stylesheet" href="../css/style.css">
+
 </head>
 <body>
+<?php include '../includes/menu2.php'; ?>
+
+    <div class="content">
     <h1>Editar Médico</h1>
     <form method="post" action="">
         <label>Nombre:</label>
@@ -49,6 +54,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         <br>
         <input type="submit" value="Actualizar">
     </form>
-    <a href="medicos.php">Volver a la Lista de Médicos</a>
+    <a href="view.php">Volver a la Lista de Médicos</a>
+    </div>
 </body>
 </html>

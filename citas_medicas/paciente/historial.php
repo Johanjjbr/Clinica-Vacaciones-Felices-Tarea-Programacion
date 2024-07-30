@@ -29,9 +29,12 @@ $paciente = mysqli_fetch_assoc($resultPaciente);
 <html>
 <head>
     <title>Historial Médico - Clínica Vacaciones Felices C.A.</title>
+    <link rel="stylesheet" href="../css/style.css">
+
 </head>
 <body>
-    <h1>Historial Médico de <?php echo $paciente['NOMBRE']; ?></h1>
+<?php include '../includes/menu2.php'; ?>
+<div class="content"><h1>Historial Médico de <?php echo $paciente['NOMBRE']; ?></h1>
     <h2>Citas Médicas</h2>
     <table border="1">
         <tr>
@@ -47,6 +50,7 @@ $paciente = mysqli_fetch_assoc($resultPaciente);
             </tr>
         <?php endwhile; ?>
     </table>
-    <a href="view.php">Volver a la Lista de Pacientes</a>
+    <a href="view.php">Volver a la Lista de Pacientes</a></div>
+    
 </body>
 </html>

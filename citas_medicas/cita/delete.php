@@ -3,24 +3,22 @@ session_start();
 include('C:\xampp\htdocs\citas_medicas\includes\db.php');
 include('C:\xampp\htdocs\citas_medicas\includes\function.php');
 
+// Verificar si el usuario ha iniciado sesión
+if (!isset($_SESSION['user_id'])) {
+    header("Location: login.php");
+    exit();
+}
+
 // Verificar rol de enfermero o administrador
-checkRole(1);
+checkRole([1, 2]);
 
-$id = $_GET['id'];
+// Obtener el ID de la cita
+$id = intval($_GET['id']);
 
-// Verificar si la cita ya ocurrió
-$query = "SELECT FECHACITA FROM citas WHERE CODCITA=$id";
-$result = $conn->query($query);
-$cita = $result->fetch_assoc();
-
-if (new DateTime($cita['FECHACITA']) < new DateTime()) {
-    echo "No se puede eliminar una cita que ya ocurrió.";
+$query = "DELETE FROM citas WHERE CODCITA = $id";
+if (mysqli_query($conn, $query)) {
+    header("Location: view.php");
 } else {
-    $sql = "DELETE FROM citas WHERE CODCITA=$id";
-    if ($conn->query($sql) === TRUE) {
-        header("Location: view.php");
-    } else {
-        echo "Error: " . $sql . "<br>" . $conn->error;
-    }
+    echo "Error al eliminar la cita: " . mysqli_error($conn);
 }
 ?>

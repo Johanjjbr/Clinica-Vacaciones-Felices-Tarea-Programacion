@@ -31,9 +31,15 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 <html>
 <head>
     <title>Editar Paciente</title>
+    <link rel="stylesheet" href="../css/style.css">
+
 </head>
 <body>
-    <h1>Editar Paciente</h1>
+<?php include '../includes/menu2.php'; ?>
+
+<div class="content">
+<div class="content">
+   <h1>Editar Paciente</h1>
     <form method="post" action="">
         <label>Nombre:</label>
         <input type="text" name="nombre" value="<?php echo $paciente['NOMBRE']; ?>" required>
@@ -53,5 +59,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         <input type="submit" value="Actualizar">
     </form>
     <a href="view.php">Volver a la Lista de Pacientes</a>
+   </div>
+</div>
 </body>
 </html>

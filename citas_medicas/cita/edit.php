@@ -47,9 +47,14 @@ $resultMedicos = mysqli_query($conn, $queryMedicos);
 <html>
 <head>
     <title>Editar Cita Médica - Clínica Vacaciones Felices C.A.</title>
+    <link rel="stylesheet" href="../css/style.css">
+
 </head>
 <body>
-    <h1>Editar Cita Médica</h1>
+<?php include '../includes/menu2.php'; ?>
+
+   <div class="content">
+   <h1>Editar Cita Médica</h1>
     <form method="post" action="">
         <label>Paciente:</label>
         <select name="codp" required>
@@ -78,5 +83,6 @@ $resultMedicos = mysqli_query($conn, $queryMedicos);
         <input type="submit" value="Actualizar Cita">
     </form>
     <a href="view.php">Volver a la Lista de Citas Médicas</a>
+   </div>
 </body>
 </html>

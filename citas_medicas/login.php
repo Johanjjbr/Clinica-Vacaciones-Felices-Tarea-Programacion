@@ -40,6 +40,5 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         <br>
         <input type="submit" value="Ingresar">
     </form>
-    <a href="./register.php">REGISTRAR NUEVO USUARIO</a>
 </body>
 </html>

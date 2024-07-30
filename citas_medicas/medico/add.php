@@ -25,9 +25,14 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 <html>
 <head>
     <title>Agregar Médico</title>
+    <link rel="stylesheet" href="../css/style.css">
+
 </head>
 <body>
-    <h1>Agregar Médico</h1>
+<?php include '../includes/menu2.php'; ?>
+
+   <div class="content">
+   <h1>Agregar Médico</h1>
     <form method="post" action="">
         <label>Nombre:</label>
         <input type="text" name="nombre" required>
@@ -44,5 +49,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         <input type="submit" value="Agregar">
     </form>
     <a href="view.php">Volver a la Lista de Médicos</a>
+   </div>
 </body>
 </html>
