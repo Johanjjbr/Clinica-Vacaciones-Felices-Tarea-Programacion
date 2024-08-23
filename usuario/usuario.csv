@@ -1,0 +1,5 @@
+ID,USERNAME,PASS,NOMBRE,EMAIL,ROLE
+1,admin,admin,"Admin Nombre",admin@gmail.com,1
+2,admin2,admin2,"Administrador 2 ",admin2@gmail.com,2
+5,admin4,$2y$10$LRBFJW/Uah9nr4N24SrpTer7BBfj2uFHbYT2dHozrTXzYco0myMMu,johan,jj@gmail.com," 3"
+6,admin5,$2y$10$t9Uf3orZs5Qxinlveh3Z0OnIbdccnK.mDFyLVIsrF4lM0pxa4muV2,"amidn5 ",amidn5,3
