@@ -11,18 +11,6 @@ if (!isset($_SESSION['ID'])) {
 // Obtener el rol del usuario
 $user_role = $_SESSION['ID'];
 
-// Función para leer un archivo CSV y devolver los datos en un array
-function readCSV($file) {
-    $rows = [];
-    if (($handle = fopen($file, 'r')) !== FALSE) {
-        while (($data = fgetcsv($handle, 1000, ",")) !== FALSE) {
-            $rows[] = $data;
-        }
-        fclose($handle);
-    }
-    return $rows;
-}
-
 // Obtener la próxima cita
 $citas = readCSV('C:\xampp\htdocs\cita\cita.csv');
 $next_cita_date = null;
